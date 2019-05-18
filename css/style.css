@@ -1,3 +1,14 @@
 #app {
   text-align: center;
+  border: 10px solid black;
+}
+
+#drum-machine{
+  border: 10px solid blue;
+}
+.container{
+   border: 10px solid green;
+}
+.drum-pad{
+  border: 5px solid gray;
 }
