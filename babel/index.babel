@@ -10,21 +10,25 @@ class App extends React.Component {
 }
 
 class DrumMachine extends React.Component {
+  keyClicked(e){
+    alert("The " + e.target.id + " was clicked");
+  }
   render(){
     return (
       <div id="drum-machine">
         <h2>Drum Component</h2>
-        <div id="display"></div>
+        <div id="display">display text</div>
         <div class="container">
-          <div class="drum-pad" id="Q">Q</div>
-          <div class="drum-pad" id="W">W</div>
-          <div class="drum-pad" id="E">E</div>
-          <div class="drum-pad" id="A">A</div>
-          <div class="drum-pad" id="S">S</div>
-          <div class="drum-pad" id="D">D</div>
-          <div class="drum-pad" id="Z">Z</div>
-          <div class="drum-pad" id="X">X</div>
-          <div class="drum-pad" id="C">C</div>
+          <div class="drum-pad" id="Q" onClick={this.keyClicked}>Q</div>
+          <div class="drum-pad" id="W" onClick={this.keyClicked}>W</div>
+          <div class="drum-pad" id="E" onClick={this.keyClicked}>E</div>
+          <div class="drum-pad" id="A"
+            onClick={this.keyClicked}>A</div>
+          <div class="drum-pad" id="S" onClick={this.keyClicked}>S</div>
+          <div class="drum-pad" id="D" onClick={this.keyClicked}>D</div>
+          <div class="drum-pad" id="Z" onClick={this.keyClicked}>Z</div>
+          <div class="drum-pad" id="X" onClick={this.keyClicked}>X</div>
+          <div class="drum-pad" id="C" onClick={this.keyClicked}>C</div>
         </div>
       </div>
     );

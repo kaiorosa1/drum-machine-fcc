@@ -10,21 +10,25 @@ class App extends React.Component {
 
 
 class DrumMachine extends React.Component {
+  keyClicked(e) {
+    alert("The " + e.target.id + " was clicked");
+  }
   render() {
     return (
       React.createElement("div", { id: "drum-machine" },
       React.createElement("h2", null, "Drum Component"),
-      React.createElement("div", { id: "display" }),
+      React.createElement("div", { id: "display" }, "display text"),
       React.createElement("div", { class: "container" },
-      React.createElement("div", { class: "drum-pad", id: "Q" }, "Q"),
-      React.createElement("div", { class: "drum-pad", id: "W" }, "W"),
-      React.createElement("div", { class: "drum-pad", id: "E" }, "E"),
-      React.createElement("div", { class: "drum-pad", id: "A" }, "A"),
-      React.createElement("div", { class: "drum-pad", id: "S" }, "S"),
-      React.createElement("div", { class: "drum-pad", id: "D" }, "D"),
-      React.createElement("div", { class: "drum-pad", id: "Z" }, "Z"),
-      React.createElement("div", { class: "drum-pad", id: "X" }, "X"),
-      React.createElement("div", { class: "drum-pad", id: "C" }, "C"))));
+      React.createElement("div", { class: "drum-pad", id: "Q", onClick: this.keyClicked }, "Q"),
+      React.createElement("div", { class: "drum-pad", id: "W", onClick: this.keyClicked }, "W"),
+      React.createElement("div", { class: "drum-pad", id: "E", onClick: this.keyClicked }, "E"),
+      React.createElement("div", { class: "drum-pad", id: "A",
+        onClick: this.keyClicked }, "A"),
+      React.createElement("div", { class: "drum-pad", id: "S", onClick: this.keyClicked }, "S"),
+      React.createElement("div", { class: "drum-pad", id: "D", onClick: this.keyClicked }, "D"),
+      React.createElement("div", { class: "drum-pad", id: "Z", onClick: this.keyClicked }, "Z"),
+      React.createElement("div", { class: "drum-pad", id: "X", onClick: this.keyClicked }, "X"),
+      React.createElement("div", { class: "drum-pad", id: "C", onClick: this.keyClicked }, "C"))));
 
 
 

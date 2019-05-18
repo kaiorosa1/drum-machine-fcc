@@ -6,6 +6,11 @@
 #drum-machine{
   border: 10px solid blue;
 }
+
+#display{
+  border: 10px solid cyan;
+}
+
 .container{
    border: 10px solid green;
 }
