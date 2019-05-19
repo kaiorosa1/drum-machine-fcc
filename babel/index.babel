@@ -15,13 +15,23 @@ class App extends React.Component {
 class DrumMachine extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      displayText: 'default text'
+    }
   }
+  
+  changeDisplay(txt){
+     this.setState({
+       displayText: txt
+     });
+  }
+  
   render(){
     return (
       <div id="drum-machine">
         <h2>Drum Component</h2>
-        <Display />
-        <DrumPad />
+        <Display displayText={this.state.displayText}/>
+        <DrumPad changeDisplay={this.changeDisplay.bind(this)}/>
       </div>
     );
   }
@@ -30,14 +40,11 @@ class DrumMachine extends React.Component {
 class Display extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      text: 'display default text'
-    };
   }
   render(){
     return(
       <div>
-        <div id="display">{this.state.text}</div>
+        <div id="display">{this.props.displayText}</div>
       </div>
     );
   }
@@ -48,21 +55,22 @@ class DrumPad extends React.Component {
     super(props);
   }
   keyClicked(e){
-    alert("The " + e.target.id + " was clicked");
+    this.props.changeDisplay(e.target.id);
+    // depending on the id play a sound
   }
   render(){
     return(
       <div>
         <div class="container">
-          <div class="drum-pad" id="Q" onClick={this.keyClicked}>Q</div>
-          <div class="drum-pad" id="W" onClick={this.keyClicked}>W</div>
-          <div class="drum-pad" id="E" onClick={this.keyClicked}>E</div>
-          <div class="drum-pad" id="A" onClick={this.keyClicked}>A</div>
-          <div class="drum-pad" id="S" onClick={this.keyClicked}>S</div>
-          <div class="drum-pad" id="D" onClick={this.keyClicked}>D</div>
-          <div class="drum-pad" id="Z" onClick={this.keyClicked}>Z</div>
-          <div class="drum-pad" id="X" onClick={this.keyClicked}>X</div>
-          <div class="drum-pad" id="C" onClick={this.keyClicked}>C</div>
+          <div class="drum-pad" id="Q" onClick={this.keyClicked.bind(this)}>Q</div>
+          <div class="drum-pad" id="W" onClick={this.keyClicked.bind(this)}>W</div>
+          <div class="drum-pad" id="E" onClick={this.keyClicked.bind(this)}>E</div>
+          <div class="drum-pad" id="A" onClick={this.keyClicked.bind(this)}>A</div>
+          <div class="drum-pad" id="S" onClick={this.keyClicked.bind(this)}>S</div>
+          <div class="drum-pad" id="D" onClick={this.keyClicked.bind(this)}>D</div>
+          <div class="drum-pad" id="Z" onClick={this.keyClicked.bind(this)}>Z</div>
+          <div class="drum-pad" id="X" onClick={this.keyClicked.bind(this)}>X</div>
+          <div class="drum-pad" id="C" onClick={this.keyClicked.bind(this)}>C</div>
         </div>
       </div>
     );
