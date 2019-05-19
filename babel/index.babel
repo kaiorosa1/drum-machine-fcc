@@ -1,4 +1,7 @@
 class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
   render(){
     return(
       <div>
@@ -10,20 +13,51 @@ class App extends React.Component {
 }
 
 class DrumMachine extends React.Component {
-  keyClicked(e){
-    alert("The " + e.target.id + " was clicked");
+  constructor(props){
+    super(props);
   }
   render(){
     return (
       <div id="drum-machine">
         <h2>Drum Component</h2>
-        <div id="display">display text</div>
+        <Display />
+        <DrumPad />
+      </div>
+    );
+  }
+}
+
+class Display extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      text: 'display default text'
+    };
+  }
+  render(){
+    return(
+      <div>
+        <div id="display">{this.state.text}</div>
+      </div>
+    );
+  }
+}
+
+class DrumPad extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  keyClicked(e){
+    alert("The " + e.target.id + " was clicked");
+  }
+  render(){
+    return(
+      <div>
         <div class="container">
           <div class="drum-pad" id="Q" onClick={this.keyClicked}>Q</div>
           <div class="drum-pad" id="W" onClick={this.keyClicked}>W</div>
           <div class="drum-pad" id="E" onClick={this.keyClicked}>E</div>
-          <div class="drum-pad" id="A"
-            onClick={this.keyClicked}>A</div>
+          <div class="drum-pad" id="A" onClick={this.keyClicked}>A</div>
           <div class="drum-pad" id="S" onClick={this.keyClicked}>S</div>
           <div class="drum-pad" id="D" onClick={this.keyClicked}>D</div>
           <div class="drum-pad" id="Z" onClick={this.keyClicked}>Z</div>

@@ -1,4 +1,7 @@
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       React.createElement("div", null,
@@ -10,20 +13,51 @@ class App extends React.Component {
 
 
 class DrumMachine extends React.Component {
-  keyClicked(e) {
-    alert("The " + e.target.id + " was clicked");
+  constructor(props) {
+    super(props);
   }
   render() {
     return (
       React.createElement("div", { id: "drum-machine" },
       React.createElement("h2", null, "Drum Component"),
-      React.createElement("div", { id: "display" }, "display text"),
+      React.createElement(Display, null),
+      React.createElement(DrumPad, null)));
+
+
+  }}
+
+
+class Display extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: 'display default text' };
+
+  }
+  render() {
+    return (
+      React.createElement("div", null,
+      React.createElement("div", { id: "display" }, this.state.text)));
+
+
+  }}
+
+
+class DrumPad extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  keyClicked(e) {
+    alert("The " + e.target.id + " was clicked");
+  }
+  render() {
+    return (
+      React.createElement("div", null,
       React.createElement("div", { class: "container" },
       React.createElement("div", { class: "drum-pad", id: "Q", onClick: this.keyClicked }, "Q"),
       React.createElement("div", { class: "drum-pad", id: "W", onClick: this.keyClicked }, "W"),
       React.createElement("div", { class: "drum-pad", id: "E", onClick: this.keyClicked }, "E"),
-      React.createElement("div", { class: "drum-pad", id: "A",
-        onClick: this.keyClicked }, "A"),
+      React.createElement("div", { class: "drum-pad", id: "A", onClick: this.keyClicked }, "A"),
       React.createElement("div", { class: "drum-pad", id: "S", onClick: this.keyClicked }, "S"),
       React.createElement("div", { class: "drum-pad", id: "D", onClick: this.keyClicked }, "D"),
       React.createElement("div", { class: "drum-pad", id: "Z", onClick: this.keyClicked }, "Z"),
