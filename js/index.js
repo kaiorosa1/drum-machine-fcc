@@ -55,8 +55,44 @@ class DrumPad extends React.Component {
     super(props);
   }
   keyClicked(e) {
-    this.props.changeDisplay(e.target.id);
-    // depending on the id play a sound
+    let displayMessage = "DEFAULT";
+    switch (e.target.id) {
+      case "Q":
+        displayMessage = "Q was pressed";
+        React.createElement("audio", { controls: true },
+        React.createElement("source", { src: "horse.ogg", type: "audio/ogg" }));
+
+        break;
+      case "W":
+        displayMessage = "W was pressed";
+        break;
+      case "E":
+        displayMessage = "E was pressed";
+        break;
+      case "A":
+        displayMessage = "A was pressed";
+        break;
+      case "S":
+        displayMessage = "S was pressed";
+        break;
+      case "D":
+        displayMessage = "D was pressed";
+        break;
+      case "Z":
+        displayMessage = "Z was pressed";
+        break;
+      case "X":
+        displayMessage = "X was pressed";
+        break;
+      case "C":
+        displayMessage = "C was pressed";
+        break;
+      default:
+        displayMessage = "default case";}
+
+
+
+    this.props.changeDisplay(displayMessage);
   }
   render() {
     return (
