@@ -63,27 +63,35 @@ class DrumPad extends React.Component {
         break;
       case "W":
         displayMessage= "W was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "E":
         displayMessage= "E was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "A":
         displayMessage= "A was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "S":
         displayMessage= "S was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "D":
         displayMessage= "D was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "Z":
         displayMessage= "Z was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "X":
         displayMessage= "X was pressed";
+        document.getElementById("Q-audio").play();
         break;
       case "C":
         displayMessage= "C was pressed";
+        document.getElementById("Q-audio").play();
         break;
       default: 
         displayMessage = "default case";
