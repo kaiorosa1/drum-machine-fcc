@@ -59,9 +59,7 @@ class DrumPad extends React.Component {
     switch (e.target.id) {
       case "Q":
         displayMessage = "Q was pressed";
-        React.createElement("audio", { controls: true },
-        React.createElement("source", { src: "horse.ogg", type: "audio/ogg" }));
-
+        document.getElementById("Q-audio").play();
         break;
       case "W":
         displayMessage = "W was pressed";
@@ -98,7 +96,10 @@ class DrumPad extends React.Component {
     return (
       React.createElement("div", null,
       React.createElement("div", { class: "container" },
-      React.createElement("div", { class: "drum-pad", id: "Q", onClick: this.keyClicked.bind(this) }, "Q"),
+      React.createElement("div", { class: "drum-pad", id: "Q", onClick: this.keyClicked.bind(this) }, "Q",
+      React.createElement("audio", { controls: true, class: "clip", id: "Q-audio", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+
       React.createElement("div", { class: "drum-pad", id: "W", onClick: this.keyClicked.bind(this) }, "W"),
       React.createElement("div", { class: "drum-pad", id: "E", onClick: this.keyClicked.bind(this) }, "E"),
       React.createElement("div", { class: "drum-pad", id: "A", onClick: this.keyClicked.bind(this) }, "A"),

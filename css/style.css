@@ -17,3 +17,6 @@
 .drum-pad{
   border: 5px solid gray;
 }
+.clip {
+  display: none;
+}
