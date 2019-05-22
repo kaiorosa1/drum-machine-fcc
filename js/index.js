@@ -54,6 +54,9 @@ class DrumPad extends React.Component {
   constructor(props) {
     super(props);
   }
+  keyPressed(e) {
+    alert(e.key);
+  }
   keyClicked(e) {
     let displayMessage = "DEFAULT";
     switch (e.target.id) {
@@ -102,7 +105,7 @@ class DrumPad extends React.Component {
   }
   render() {
     return (
-      React.createElement("div", null,
+      React.createElement("div", { onKeyPress: this.keyPressed.bind(this) },
       React.createElement("div", { class: "container" },
       React.createElement("div", { class: "drum-pad", id: "Q-audio", onClick: this.keyClicked.bind(this) }, "Q",
       React.createElement("audio", { controls: true, class: "clip", id: "Q", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
