@@ -53,9 +53,52 @@ class Display extends React.Component {
 class DrumPad extends React.Component {
   constructor(props){
     super(props);
+    this.keyPressed = this.keyPressed.bind(this);
   }
   keyPressed(e){
-    alert(e.key);
+    let displayMessage;
+    switch (e.keyCode){
+      case 81:
+        displayMessage= "Q was pressed";
+        document.getElementById("Q").play();
+        break;
+      case 87:
+        displayMessage= "W was pressed";
+        document.getElementById("W").play();
+        break;
+      case 69:
+        displayMessage= "E was pressed";
+        document.getElementById("E").play();
+        break;
+      case 65:
+        displayMessage= "A was pressed";
+        document.getElementById("A").play();
+        break;
+      case 83:
+        displayMessage= "S was pressed";
+        document.getElementById("S").play();
+        break;
+      case 68:
+        displayMessage= "D was pressed";
+        document.getElementById("D").play();
+        break;
+      case 90:
+        displayMessage= "Z was pressed";
+        document.getElementById("Z").play();
+        break;
+      case 88:
+        displayMessage= "X was pressed";
+        document.getElementById("Q").play();
+        break;
+      case 67:
+        displayMessage= "C was pressed";
+        document.getElementById("C").play();
+        break;
+      default: 
+        
+    }
+     
+    this.props.changeDisplay(displayMessage);
   }
   keyClicked(e){
     let displayMessage="DEFAULT";
@@ -103,9 +146,17 @@ class DrumPad extends React.Component {
     
     this.props.changeDisplay(displayMessage);
   }
+  componentDidMount() {
+    document.addEventListener('keydown', this.keyPressed);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.keyPressed);
+  }
+  
   render(){
     return(
-      <div onKeyPress={this.keyPressed.bind(this)}>
+      <div onKeyPress={this.keyPressed}>
         <div class="container">
           <div class="drum-pad" id="Q-audio" onClick={this.keyClicked.bind(this)}>Q
             <audio controls class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
