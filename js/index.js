@@ -16,7 +16,7 @@ class DrumMachine extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayText: 'default text' };
+      displayText: "default text" };
 
   }
 
@@ -88,14 +88,14 @@ class DrumPad extends React.Component {
         break;
       case 88:
         displayMessage = "X was pressed";
-        document.getElementById("Q").play();
+        document.getElementById("X").play();
         break;
       case 67:
         displayMessage = "C was pressed";
         document.getElementById("C").play();
         break;
-      default:}
-
+      default:
+        displayMessage = "default case";}
 
 
     this.props.changeDisplay(displayMessage);
@@ -133,7 +133,7 @@ class DrumPad extends React.Component {
         break;
       case "X-audio":
         displayMessage = "X was pressed";
-        document.getElementById("Q").play();
+        document.getElementById("X").play();
         break;
       case "C-audio":
         displayMessage = "C was pressed";
@@ -143,55 +143,135 @@ class DrumPad extends React.Component {
         displayMessage = "default case";}
 
 
-
     this.props.changeDisplay(displayMessage);
   }
   componentDidMount() {
-    document.addEventListener('keydown', this.keyPressed);
+    document.addEventListener("keydown", this.keyPressed);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.keyPressed);
+    document.removeEventListener("keydown", this.keyPressed);
   }
 
   render() {
     return (
       React.createElement("div", { onKeyPress: this.keyPressed },
       React.createElement("div", { class: "container" },
-      React.createElement("div", { class: "drum-pad", id: "Q-audio", onClick: this.keyClicked.bind(this) }, "Q",
-      React.createElement("audio", { controls: true, class: "clip", id: "Q", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "Q-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "Q",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "Q"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "W-audio", onClick: this.keyClicked.bind(this) }, "W",
-      React.createElement("audio", { controls: true, class: "clip", id: "W", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "W-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "W",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "W"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "E-audio", onClick: this.keyClicked.bind(this) }, "E",
-      React.createElement("audio", { controls: true, class: "clip", id: "E", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "E-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "E",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "E"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "A-audio", onClick: this.keyClicked.bind(this) }, "A",
-      React.createElement("audio", { controls: true, class: "clip", id: "A", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "A-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "A",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "A"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "S-audio", onClick: this.keyClicked.bind(this) }, "S",
-      React.createElement("audio", { controls: true, class: "clip", id: "S", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "S-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "S",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "S"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "D-audio", onClick: this.keyClicked.bind(this) }, "D",
-      React.createElement("audio", { controls: true, class: "clip", id: "D", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "D-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "D",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "D"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "Z-audio", onClick: this.keyClicked.bind(this) }, "Z",
-      React.createElement("audio", { controls: true, class: "clip", id: "Z", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "Z-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "Z",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "Z"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "X-audio", onClick: this.keyClicked.bind(this) }, "X",
-      React.createElement("audio", { controls: true, class: "clip", id: "X", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })),
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "X-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "X",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "X"),
 
 
-      React.createElement("div", { class: "drum-pad", id: "C-audio", onClick: this.keyClicked.bind(this) }, "C",
-      React.createElement("audio", { controls: true, class: "clip", id: "C", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" })))));
+
+      React.createElement("div", {
+        class: "drum-pad",
+        id: "C-audio",
+        onClick: this.keyClicked.bind(this) },
+
+      React.createElement("audio", {
+        controls: true,
+        class: "clip",
+        id: "C",
+        src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" }), "C"))));
+
 
 
 
@@ -200,4 +280,4 @@ class DrumPad extends React.Component {
   }}
 
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(App, null), document.getElementById("app"));

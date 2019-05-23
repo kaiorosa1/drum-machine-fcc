@@ -1,9 +1,9 @@
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <h1>App Component</h1>
         <DrumMachine />
@@ -13,36 +13,36 @@ class App extends React.Component {
 }
 
 class DrumMachine extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      displayText: 'default text'
-    }
+      displayText: "default text"
+    };
   }
-  
-  changeDisplay(txt){
-     this.setState({
-       displayText: txt
-     });
+
+  changeDisplay(txt) {
+    this.setState({
+      displayText: txt
+    });
   }
-  
-  render(){
+
+  render() {
     return (
       <div id="drum-machine">
         <h2>Drum Component</h2>
-        <Display displayText={this.state.displayText}/>
-        <DrumPad changeDisplay={this.changeDisplay.bind(this)}/>
+        <Display displayText={this.state.displayText} />
+        <DrumPad changeDisplay={this.changeDisplay.bind(this)} />
       </div>
     );
   }
 }
 
 class Display extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <div id="display">{this.props.displayText}</div>
       </div>
@@ -51,148 +51,228 @@ class Display extends React.Component {
 }
 
 class DrumPad extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.keyPressed = this.keyPressed.bind(this);
   }
-  keyPressed(e){
+  keyPressed(e) {
     let displayMessage;
-    switch (e.keyCode){
+    switch (e.keyCode) {
       case 81:
-        displayMessage= "Q was pressed";
+        displayMessage = "Q was pressed";
         document.getElementById("Q").play();
         break;
       case 87:
-        displayMessage= "W was pressed";
+        displayMessage = "W was pressed";
         document.getElementById("W").play();
         break;
       case 69:
-        displayMessage= "E was pressed";
+        displayMessage = "E was pressed";
         document.getElementById("E").play();
         break;
       case 65:
-        displayMessage= "A was pressed";
+        displayMessage = "A was pressed";
         document.getElementById("A").play();
         break;
       case 83:
-        displayMessage= "S was pressed";
+        displayMessage = "S was pressed";
         document.getElementById("S").play();
         break;
       case 68:
-        displayMessage= "D was pressed";
+        displayMessage = "D was pressed";
         document.getElementById("D").play();
         break;
       case 90:
-        displayMessage= "Z was pressed";
+        displayMessage = "Z was pressed";
         document.getElementById("Z").play();
         break;
       case 88:
-        displayMessage= "X was pressed";
-        document.getElementById("Q").play();
+        displayMessage = "X was pressed";
+        document.getElementById("X").play();
         break;
       case 67:
-        displayMessage= "C was pressed";
+        displayMessage = "C was pressed";
         document.getElementById("C").play();
         break;
-      default: 
-        
+      default:
+        displayMessage = "default case";
     }
-     
+
     this.props.changeDisplay(displayMessage);
   }
-  keyClicked(e){
-    let displayMessage="DEFAULT";
-    switch (e.target.id){
+  keyClicked(e) {
+    let displayMessage = "DEFAULT";
+    switch (e.target.id) {
       case "Q-audio":
-        displayMessage= "Q was pressed";
+        displayMessage = "Q was pressed";
         document.getElementById("Q").play();
         break;
       case "W-audio":
-        displayMessage= "W was pressed";
+        displayMessage = "W was pressed";
         document.getElementById("W").play();
         break;
       case "E-audio":
-        displayMessage= "E was pressed";
+        displayMessage = "E was pressed";
         document.getElementById("E").play();
         break;
       case "A-audio":
-        displayMessage= "A was pressed";
+        displayMessage = "A was pressed";
         document.getElementById("A").play();
         break;
       case "S-audio":
-        displayMessage= "S was pressed";
+        displayMessage = "S was pressed";
         document.getElementById("S").play();
         break;
       case "D-audio":
-        displayMessage= "D was pressed";
+        displayMessage = "D was pressed";
         document.getElementById("D").play();
         break;
       case "Z-audio":
-        displayMessage= "Z was pressed";
+        displayMessage = "Z was pressed";
         document.getElementById("Z").play();
         break;
       case "X-audio":
-        displayMessage= "X was pressed";
-        document.getElementById("Q").play();
+        displayMessage = "X was pressed";
+        document.getElementById("X").play();
         break;
       case "C-audio":
-        displayMessage= "C was pressed";
+        displayMessage = "C was pressed";
         document.getElementById("C").play();
         break;
-      default: 
+      default:
         displayMessage = "default case";
     }
-    
-    
+
     this.props.changeDisplay(displayMessage);
   }
   componentDidMount() {
-    document.addEventListener('keydown', this.keyPressed);
+    document.addEventListener("keydown", this.keyPressed);
   }
-  
+
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.keyPressed);
+    document.removeEventListener("keydown", this.keyPressed);
   }
-  
-  render(){
-    return(
+
+  render() {
+    return (
       <div onKeyPress={this.keyPressed}>
         <div class="container">
-          <div class="drum-pad" id="Q-audio" onClick={this.keyClicked.bind(this)}>Q
-            <audio controls class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="Q-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="Q"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            Q
           </div>
-          <div class="drum-pad" id="W-audio" onClick={this.keyClicked.bind(this)}>W
-          <audio controls class="clip" id="W" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="W-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="W"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            W
           </div>
-          <div class="drum-pad" id="E-audio" onClick={this.keyClicked.bind(this)}>E
-          <audio controls class="clip" id="E" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="E-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="E"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            E
           </div>
-          <div class="drum-pad" id="A-audio" onClick={this.keyClicked.bind(this)}>A
-          <audio controls class="clip" id="A" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="A-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="A"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            A
           </div>
-          <div class="drum-pad" id="S-audio" onClick={this.keyClicked.bind(this)}>S
-          <audio controls class="clip" id="S" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="S-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="S"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            S
           </div>
-          <div class="drum-pad" id="D-audio" onClick={this.keyClicked.bind(this)}>D
-          <audio controls class="clip" id="D" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="D-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="D"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            D
           </div>
-          <div class="drum-pad" id="Z-audio" onClick={this.keyClicked.bind(this)}>Z
-          <audio controls class="clip" id="Z" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="Z-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="Z"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            Z
           </div>
-          <div class="drum-pad" id="X-audio" onClick={this.keyClicked.bind(this)}>X
-          <audio controls class="clip" id="X" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="X-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="X"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            X
           </div>
-          <div class="drum-pad" id="C-audio" onClick={this.keyClicked.bind(this)}>C
-          <audio controls class="clip" id="C" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3">
-        </audio>
+          <div
+            class="drum-pad"
+            id="C-audio"
+            onClick={this.keyClicked.bind(this)}
+          >
+            <audio
+              controls
+              class="clip"
+              id="C"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            />
+            C
           </div>
         </div>
       </div>
@@ -200,4 +280,4 @@ class DrumPad extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
