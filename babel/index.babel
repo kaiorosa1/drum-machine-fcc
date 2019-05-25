@@ -5,7 +5,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>App Component</h1>
         <DrumMachine />
       </div>
     );
@@ -29,7 +28,7 @@ class DrumMachine extends React.Component {
   render() {
     return (
       <div id="drum-machine">
-        <h2>Drum Component</h2>
+        <h1>Drum Machine (FCC)</h1>
         <Display displayText={this.state.displayText} />
         <DrumPad changeDisplay={this.changeDisplay.bind(this)} />
       </div>

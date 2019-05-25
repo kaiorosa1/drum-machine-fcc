@@ -5,7 +5,6 @@ class App extends React.Component {
   render() {
     return (
       React.createElement("div", null,
-      React.createElement("h1", null, "App Component"),
       React.createElement(DrumMachine, null)));
 
 
@@ -29,7 +28,7 @@ class DrumMachine extends React.Component {
   render() {
     return (
       React.createElement("div", { id: "drum-machine" },
-      React.createElement("h2", null, "Drum Component"),
+      React.createElement("h1", null, "Drum Machine (FCC)"),
       React.createElement(Display, { displayText: this.state.displayText }),
       React.createElement(DrumPad, { changeDisplay: this.changeDisplay.bind(this) })));
 

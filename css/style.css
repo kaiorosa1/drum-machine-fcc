@@ -1,19 +1,23 @@
 .container{
-   border: 10px solid green;
+   
    display: grid;
    grid-template-columns: 300px 300px 300px;
+   height: 200px;
    justify-content: center;
+   
 }
 .drum-pad{
   border: 5px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .clip {
   display: none;
 }
 
 #app {
-  text-align: center;
-  border: 10px solid black;
+  text-align: center; 
 }
 
 #drum-machine{
@@ -21,6 +25,10 @@
 }
 
 #display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 10px solid cyan;
+  height: 50px;
 }
 
