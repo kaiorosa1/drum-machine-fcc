@@ -43,7 +43,7 @@ class Display extends React.Component {
   render() {
     return (
       React.createElement("div", null,
-      React.createElement("div", { id: "display" }, this.props.displayText)));
+      React.createElement("div", { id: "display" }, React.createElement("h3", null, this.props.displayText))));
 
 
   }}
